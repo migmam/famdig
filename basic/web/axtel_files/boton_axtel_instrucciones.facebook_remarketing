@@ -1,0 +1,10 @@
+hdiv =$(".button.help.bgray").parent();
+var hlink = document.createElement("a");
+hlink.href="/static/axtelexperto/instrucciones/help.html"
+hlink.text=" + info";
+hdiv.append(hlink);
+hdiv.children().addClass("button help bgray openpopup");
+$(document).on('click','.openpopup',function(e){
+e. preventDefault();
+window.open($(this).attr('href'),'ventana','width=500,height=600,left=100,top=50');
+});
