@@ -25,6 +25,8 @@ use yii\web\IdentityInterface;
  * @property integer $municipios_id
  * @property string $password
  * @property string $username
+ * @property string $token 
+ * @property integer $token_time 
  *
  * @property Municipios $municipios
  * @property UsuariosLicencias[] $usuariosLicencias
@@ -47,10 +49,10 @@ class Usuarios extends \yii\db\ActiveRecord  implements IdentityInterface
     {
         return [
             [['municipios_id', 'username'], 'required'],
-            [['municipios_id'], 'integer'],
+            [['municipios_id', 'token_time'], 'integer'],
             [['nombre', 'apellidos', 'username'], 'string', 'max' => 45],
             [['telefono', 'movil'], 'string', 'max' => 15],
-            [['email'], 'string', 'max' => 50],
+            [['email', 'token'], 'string', 'max' => 50],
             [['codpostal'], 'string', 'max' => 5],
             [['password'], 'string', 'max' => 150]
         ];
@@ -72,6 +74,8 @@ class Usuarios extends \yii\db\ActiveRecord  implements IdentityInterface
             'municipios_id' => 'Municipios ID',
             'password' => 'Password',
             'username' => 'Username',
+            'token' => 'Token', 
+            'token_time' => 'Token Time',
         ];
     }
 

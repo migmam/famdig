@@ -31,6 +31,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post','get'],  //Quitar GET (MAM)
+                    'rememberPass' => ['post','get'],  //Quitar GET (MAM)
                 ],
             ],
         ];
@@ -55,8 +56,34 @@ class SiteController extends Controller
            
              return $this->redirect('index.php?r=site/login');
         }else{
-            return $this->render('index');
+            //return $this->render('index');
+            return $this->render('plantillas/axtel_inicio.tpl');
         }
+    }
+    
+    public function actionRememberpass()
+    {
+        //aquí se genera token y se graba en el modelo.
+        //dicho token se envía por correo.
+        
+      if(!Yii::$app->mailer->compose()
+        ->setFrom('notreply@virtualcarecorp.com')
+        ->setTo('mamartinez@somosvirtualcare.com')
+        ->setSubject('Test')
+        ->setHtmlBody($this->render('@app/mail/remember-pass.tpl', [
+        'token' => '34343443008888']))
+        ->send())
+      {
+          echo "falla"; exit;
+      }
+        
+         return $this->render('plantillas/email_enviado.tpl');
+        
+        
+        //Yii::$app->mailer->compose('greetings', [
+        //'user' => Yii::$app->user->identity,
+        //'advertisement' => $adContent,
+        //]);
     }
 
     public function actionLogin()
@@ -77,6 +104,11 @@ class SiteController extends Controller
         //return $this->render('login', [
         //    'model' => $model,
         //]);
+    }
+    
+    public function actionForgotpass()
+    {
+        return $this->render('forgotPass.tpl'); 
     }
 
     public function actionLogout()

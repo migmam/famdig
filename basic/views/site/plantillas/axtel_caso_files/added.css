@@ -1,0 +1,31 @@
+span.channels {
+    display: inline-flex;
+    cursor: pointer;
+}
+
+.channels img {
+  width: 50%;
+}
+
+span.label {
+  display: block;
+  font-size: smaller;
+}
+
+/* FORMS FEEDBACK */
+.messages {margin:0 0 10px 0; color: #468847; background-color: #dff0d8; border-color: #d6e9c6;;padding:7px;border-radius:9px}
+
+/* VULNERABILITY ANALYSIS */
+
+.m10 {
+    margin: 10px 0px 10px 0px !important;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.p50 {padding-left: 50px; padding-right: 50px; }
+.bp {list-style: initial;}
+
+.start_big {background-position:10px 50%;background-repeat:no-repeat;padding:15px 20px 15px 20px;margin-top:20px;cursor: pointer;}

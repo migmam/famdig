@@ -1,0 +1,244 @@
+.clear {clear: both;}
+:focus, input:focus, select:focus, iframe:focus, div:focus {outline:none;}
+
+.g-FormField2 {margin:0 0 5px;}
+	.g-FormField2-InputContainer {position:relative; float:left;}
+	.g-FormField2-ErrorIcon {background:url('img/formfield_error.png') no-repeat right center transparent; border-radius:0; color: white; font-size: 12px; font-weight: bold; height:24px; margin-top: 1px; padding-top: 1px; position: absolute; right: -20px;  text-align: center; width:20px;}
+		.g-FormField2-ErrorIcon span {display:none;}
+	.g-FormField2-ErrorPopup-Beside {padding:0 0 0 5px; background:url('img/fieldset-error-arrow.png') no-repeat left -5px;}
+	.g-FormField2-ErrorPopup-Bellow {padding:5px 0 0; background:url('img/fieldset-error-arrow.png') no-repeat -5px top;}
+	.g-FormField2-Label {float:left; padding:5px 10px 5px 0; font-size:12px; font-size:0.75rem; text-align:right; width: 100px;}
+	.g-FormField2-Description,
+	.g-FormField2-ErrorMessage {line-height:13px; font-size:10px; font-size:0.65rem; clear:both; display:block; max-width:350px;}
+ 		.g-FormField2-Description {border:1px solid transparent; color:#444;}
+
+.g-FormField2 .TextBox {}
+	.g-FormField2-Error .TextBox {border:1px solid #a60000;}
+	.g-FormField2-Error .g-FormField2-Message {display:block; background:#a60000; border:1px solid #a60000; font-size:9px; color:#fff; clear:both; -moz-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px;}
+	.g-FormField2-Waiting .g-FormField2-Message {display:block; background:rgb(0,0,255); border:1px solid #a60000; font-size:9px; color:#fff; clear:both; -moz-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px;}
+	.g-FormField2-Valid .g-FormField2-Message {display:block; background:rgb(0,255,0); border:1px solid #a60000; font-size:9px; color:#fff; clear:both; -moz-border-radius:0 0 5px 5px; border-radius:0 0 5px 5px;}
+
+.g-FormField2-InputPanel {float:left;}
+.g-FormField2-ErrorPopup {background-color: #A60000; color: white; border-radius: 5px;}
+.g-FormField2-ErrorPopupLabel {padding: 5px;}
+
+.TextBoxContainer {display:inline-block; padding:3px !important; background:#fff; border:1px solid #cbcbcb; font-size:inherit; font-family:inherit;}
+	* html .TextBoxContainer {display:inline; width:200px;}
+	*+html .TextBoxContainer {display:inline; width:200px;}
+	.TextBox, .TextBoxContainer .gwt-TextBox {font-size:12px; font-size:0.75rem; line-height:normal; border:none !important;}
+	.TextBox, .TextBoxContainer .gwt-TextArea {font-size:12px; font-size:0.75rem; line-height:normal; border:none !important;}
+	.TextBox, .TextBoxContainer .gwt-PasswordTextBox {font-size:12px; font-size:0.75rem; line-height:normal; border:none !important;}
+	.TextBoxContainer-focus {border:1px solid #015A82; box-shadow:0px 0px 3px #2c67a9; -moz-box-shadow:0px 0px 3px #2c67a9; -webkit-box-shadow:0px 0px 3px #2c67a9;}
+	.g-FormField2-Error .TextBoxContainer {border-color:#A60000 !important; background:#fff0f0;}
+		.g-FormField2-Error .TextBoxContainer input {background:#fff0f0;}
+		.g-FormField2-Error .TextBoxContainer textarea {background:#fff0f0;}
+		.g-FormField2-Error .TextBoxContainer-focus {box-shadow:0 0 3px #A60000; -moz-box-shadow:0 0 3px #A60000; -webkit-box-shadow:0 0 3px #A60000;}
+.TextBoxBaseWithDefault-Default .TextBox {color:#999;}
+
+.g-ListBox {display:inline-block; border:1px solid #cbcbcb; background:#fff; padding:3px !important; cursor: pointer;}
+	* html .g-ListBox {display:inline; width:200px;}
+	*+html .g-ListBox {display:inline; width:200px;}  
+	.g-ListBoxInput {font-size:12px; font-size:0.75rem; line-height:normal !important; border:none !important; background:none !important; padding:0 !important; width:185px; cursor: pointer;}
+	.g-ListBoxButton {height:auto; line-height:19px; vertical-align:top; background:url("img/expand.png") no-repeat center 7px;}
+		 .g-ListBox-expand, .g-ListBox-focus {border:1px solid #015A82; box-shadow:0 0 3px #2c67a9; -moz-box-shadow:0 0 3px #2c67a9; -webkit-box-shadow:0 0 3px #2c67a9;}
+		 .g-ListBox-expand .g-ListBoxButton {background:url("img/expand.png") no-repeat center -14px;}
+		 .g-ListBox-focus .g-ListBoxButton {background-position:center 7px;}
+		 .g-ListBox-expand.g-ListBox-focus .g-ListBoxButton {background-position:center -14px;}
+
+.FormFieldsetWithTitle {margin:0 0 30px; background:#666; border:none; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; clear:both;}
+	.FormFieldsetWithTitle .FormFieldset {margin:0; border:none; border:1px solid #e0e0e0;}
+	.FormFieldsetTitle {font-size:14px; color:#fff; padding:12px 18px; font-weight:bold;}
+		* html .FormFieldsetTitle {white-space:nowrap;}
+		*+html .FormFieldsetTitle {white-space:nowrap;}
+.FormFieldsetSectionTitle {line-height:18px; clear:both; font-size:13px; color:#000; background-color:#f7f7f7; border:1px solid #e0e0e0; border-left:none; border-right:none; padding:12px 18px; margin:10px -15px; font-weoght:bold;}
+.FormFieldset {padding:10px 15px; margin:0 0 30px; background:#f1f1f1; border:1px solid #e0e0e0; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; clear:both; min-width:800px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; box-sizing: border-box;}
+	* html .FormFieldset {width:800px;}
+	*+html .FormFieldset {width:800px;}
+	.FormFieldset:after {clear:both;}
+	.FormFieldset.SimpleFormFieldset {padding:0px; margin:0px; background:none; border:none; min-width:0;}
+    .FormFieldsetHeader {background:url('img/header_divider.png?t=3') repeat-x left bottom; padding:3px 15px 15px; margin:0 -15px 10px;}
+    	.FormFieldsetHeader .ImLeButton {vertical-align:middle;}
+    		.FormFieldsetHeader .buttonText {font:normal 12px "Lucida grande","Lucida sans unicode", Arial; padding: 0 10px;}
+    	.FormFieldsetHeaderTitle {font-size:14px; font-weight:bold;}
+    		.FormFieldsetHeaderTitle.TitleWithButton {display:inline; vertical-align:middle;}
+    	.FormFieldsetHeaderDescription {font-size:11px; padding-top:3px;}
+    .FormFieldsetButtons {background:url('img/header_divider.png?t=3') repeat-x left top; padding:15px 15px 3px; margin:0 0 10px;}
+    	.NewFormFieldContent.FormFieldsetButtons {padding:15px 15px 13px 145px;}
+    	.FormFieldsetButtons .ImLeButton {margin-right:10px;}
+	.FormFieldSeparator {background:url('img/box_divider.png?t=3') repeat-x left bottom;}
+	
+.SimpleFieldset {padding:10px 15px; background:#fff; margin:0 0 30px; border:1px solid #e0e0e0; border-radius:5px; -webkit-border-radius:5px; -moz-border-radius:5px; clear:both; min-width:800px;}
+    .SimpleFieldset .FormFieldsetHeader {border-bottom:1px solid #d2d2d2; padding:3px 15px 12px; margin:0 -15px 10px;}
+    .SimpleFieldset .FormFieldSeparator {border-bottom:1px solid #ededed; background:none;}
+.FormFieldset p, .SimpleFieldset p {font-size:12px; line-height:21px;}
+
+.NewFormField {padding:10px 0;}
+	.NewFormField:first-child {padding:0 0 10px;}
+	.NewFormField:last-child {padding:10px 0 0;}
+		.NotFirstLast.NewFormField:first-child, .NotFirstLast.NewFormField:last-child {padding:10px 0;}
+	.NewFormField .TextBox {width:205px; font-size: 1.1em !important; line-height:normal !important;}
+	.NewFormField .TextBoxContainer {display:inline-block;}
+		* html .NewFormField .TextBoxContainer {display:inline;}
+		*+html .NewFormField .TextBoxContainer {display:inline;}  
+	.NewFormFieldLabel {padding:5px 10px 5px 0; font-size:12px; font-size:0.75rem; width:130px; margin:0 0 0 5px; float:left; text-align:right; font-weight:bold; text-shadow:0 1px #fff; color:#6b6b6b;}
+		.NewFormField-mandatory .NewFormFieldLabel {color:#000;}
+	.NewFormFieldContent {padding:0 0 0 145px; margin:3px 0 5px;}
+		.NewFormFieldContent .SubmitButton {margin-right:5px;}
+		/*.NewFormFieldContent.FloatLeft {padding:0px; margin:0 0 0 10px;}*/
+	.NewFormFieldTextContent {line-height: 19px;}
+	.NewFormFieldSection {background:#a1a1a1; border-bottom:1px solid #fff; color:#fff; padding:3px 10px 2px; font-size:12px; font-size:0.75rem; font-weight:bold;}
+	.NewFormFieldButton {margin:5px 5px 5px 145px !important;}
+		.NewFormFieldButton .ImLeButton {margin-right:5px;}
+.FormfieldAsNewFormField {padding:10px 0;}
+	.FormfieldAsNewFormField.NewFormFieldContent {padding:10px 0 10px 145px;} 
+	.FormfieldAsNewFormField.g-FormField2, .FormfieldAsNewFormField .g-FormField2 {margin:0;}
+	.FormfieldAsNewFormField .TextBox {width:205px; font-size:12px; font-size:0.75rem; line-height:normal !important; background:transparent;}
+		.FormfieldAsNewFormField .g-ListBoxInput {font-size:12px; font-size:0.75rem; line-height:normal !important;}
+	.FormfieldAsNewFormField .TextBoxContainer, .FormfieldAsNewFormField .g-ListBox {display:inline-block; padding:4px !important;}
+		* html .FormfieldAsNewFormField .TextBoxContainer {display:inline;}
+		*+html .FormfieldAsNewFormField .TextBoxContainer {display:inline;}
+		* html .FormfieldAsNewFormField .g-ListBox {display:inline;}
+		*+html .FormfieldAsNewFormField .g-ListBox {display:inline;}  
+	.FormfieldWithTextarea .TextBoxContainer {display:block;}
+		.FormfieldWithTextarea .TextBox {width:450px; height:50px;}
+	.FormfieldAsNewFormField .g-FormField2-Label {padding:5px 10px 5px 0; width:130px; font-size:12px; font-size:0.75rem; margin:0 0 0 5px; float:left; text-align:right; font-weight:bold; text-shadow:0 1px #ffffff; color:#6b6b6b;}
+		.FormfieldAsNewFormField .g-FormField2-InputContainer .g-FormField2-Label {padding:0 10px 0 0; width:auto; font-size:12px; font-size:0.75rem; margin:0 0 0 5px; float:left; text-align:right; font-weight:normal; text-shadow:none; color:#000000;}
+	.FormfieldAsNewFormField .g-FormField2-Label.gwt-Label-mandatory {color:#000;}
+
+.NewFormFieldMessage.messageOk, .FormMessage-info {margin:10px 0 5px; background:#e6fad0; border:1px solid #5cb300; color:#000; padding:7px 12px; display:inline-block; box-shadow:0 0 4px #c3c3c3; -moz-box-shadow:0 0 4px #c3c3c3; -webkit-box-shadow:0 0 4px #c3c3c3; position:relative;}
+	.NewFormFieldMessage.messageOk .MessageArrow, .FormMessage-info .FormMessageArrow {background:url('img/formmessage-info.png') no-repeat top left; width:15px; height:9px; display:block; position:absolute; top:-9px; left:15px;}
+.NewFormFieldMessage.messageError, .FormMessage-error, .LoginMain .FormMessage-error {margin:10px 0 5px; border:1px solid #bb2025; background:#ffc3c3; color:#000; padding:7px 12px; display:inline-block; box-shadow:0 0 4px #999999; -moz-box-shadow:0 0 4px #999999; -webkit-box-shadow:0 0 4px #999999; position:relative;}
+	.NewFormFieldMessage.messageError .MessageArrow, .FormMessage-error .FormMessageArrow {background:url('img/formmessage-error.png') no-repeat top left; width:15px; height:9px; display:block; position:absolute; top:-9px; left:15px;}
+	.LoginMain .FormMessage-error {clear:left;}
+
+.FormTooltip {margin:0 0 0 20px; background-color:#FFFED7; border:1px solid #CFCDCD; border-radius:5px 5px 5px 5px; -moz-border-radius:5px; -webkit-border-radius:5px; padding: 15px; position:relative;}
+	.FormTooltipArrow {background:url('img/form_tooltip_arrow.png') no-repeat; width:8px; height:13px; position:absolute; top:10px; left:-8px;}
+
+.RadioButton {position:relative; float:left; padding:2px 10px 2px 21px; height:20px; color:#000; outline:none; cursor:pointer;}
+	.RadioButton-over .RadioButtonIcon {background-position:0 -40px;}
+	.RadioButton-down .RadioButtonIcon {background-position:0 -20px;}
+	.RadioButton-downOver .RadioButtonIcon {background-position:0 -60px;}
+	.RadioButton-focus .RadioButtonIcon, .RadioButton-focus.RadioButton-over .RadioButtonIcon {background-position:0 -80px;}
+		.RadioButton-focus.RadioButton-down .RadioButtonIcon,
+		.RadioButton-focus.RadioButton-downOver .RadioButtonIcon {background-position:0 -100px;}
+
+.RadioButton2-Button {position:relative; padding:2px 10px 2px 21px; height:20px; outline:none; cursor:pointer; position:relative; box-sizing:border-box; -ms-box-sizing:border-box; -webkit-box-sizing:border-box; -moz-box-sizing:border-box;}
+	.RadioButton2-Icon {background:url('img/radiobutton2.png') no-repeat 0 0; width:19px; height:20px; position:absolute; top:0; left:0;}
+	.RadioButton2-Label {color:#000; line-height:16px;}
+	.RadioButton2-over .RadioButton2-Icon {background-position:0 -40px;}
+	.RadioButton2-down .RadioButton2-Icon {background-position:0 -20px;}
+	.RadioButton2-downOver .RadioButton2-Icon {background-position:0 -60px;}
+	.RadioButton2-focus .RadioButton2-Icon, .RadioButton2-focus.RadioButton2-over .RadioButton2-Icon {background-position:0 -80px;}
+		.RadioButton2-focus.RadioButton2-down .RadioButton2-Icon,
+		.RadioButton2-focus.RadioButton2-downOver .RadioButton2-Icon {background-position:0 -100px;}
+
+.RadioButtonGroup2-inline .RadioButton2 {float:left;}
+
+.RadioButtonGroup2-image .RadioButton2 {background-color:#d7d6d5; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; margin:0 10px 10px 0;}
+	.RadioButtonGroup2-image .RadioButton2-down, .RadioButtonGroup2-image .RadioButton2-downOver {background:#005b82;}
+		.RadioButtonGroup2-image .RadioButton2-down .RadioButton2-Label, .RadioButtonGroup2-image .RadioButton2-downOver .RadioButton2-Label {color:#fff;}
+	.RadioButtonGroup2-image .RadioButton2-over {background-color:#bfcbcf;}
+
+.RadioButtonGroup2-grid .RadioButton2-Content {position:relative; padding:10px 0 8px 25px; margin:10px 0; background:url('img/box_divider.png?t=3') repeat-x left top;}
+	.RadioButtonGroup2-grid .RadioButton2-Button {position:absolute; top:10px; left:0;}
+
+.CheckBoxContainer {position:relative; padding:0 0 0 15px; line-height:19px;}
+	.CheckBoxContainer .CheckBox {position:absolute; left:0; top:0;}
+	.CheckBoxContainer .CheckBoxlabel {padding:0 0 0 5px; font-size:12px;}
+	.g-FormField2 .CheckBoxContainer {margin-top:2px;}
+
+.CheckBox {background:url('img/la_checkbox.png') no-repeat -190px 3px;}
+	.CheckBox:hover {background-position:-142px -45px;}
+	.CheckBox-checked {background-position:-166px -21px;}
+	.CheckBox-checked:hover {background-position:-118px -69px;}
+	.CheckBox-focus, .CheckBox-focus:hover {background-position:-94px -93px;}
+		.CheckBox-focus.CheckBox-checked,
+		.CheckBox-focus.CheckBox-checked:hover {background-position:-70px -117px;}
+	.CheckBox.CheckBox-disabled {background-position:-46px -141px !important; width:20px !important; height:21px !important;}
+	.CheckBox-checked.CheckBox-disabled {background-position:-22px -165px !important; width:20px !important; height:21px !important;}
+	.CheckboxIcon {background:url('img/checkbox2.png') no-repeat 0 0; left:0; top:0; width:20px; height:20px; position:absolute;} 
+
+.OptionsPanel .option {border:none; position:relative;} 
+	.OptionsPanel .option .optionLabel {padding:0 5px 0 21px; border:none; font:inherit; font-size:11px; line-height:24px;}
+	.OptionsPanel .optionOver .optionLabel {background-color:#e6e6e6;}
+	.OptionsPanel .CheckboxIcon {top:2px;}
+		.OptionsPanel .optionOver .CheckboxIcon {background-position:0 -40px;}
+	.OptionsPanel .optionSelected .optionLabel {background-color:transparent;}
+		.OptionsPanel .optionSelected .CheckboxIcon {background-position:0 -20px;}
+		.OptionsPanel .optionSelected.optionOver .CheckboxIcon {background-position:0 -60px;}
+
+.FormFieldCheckbox.g-FormField2 {position:relative;}
+	.FormFieldCheckbox .g-FormField2-Label {float:none !important; padding:3px 0 0 25px; text-align:left; width:auto;}
+	.FormFieldCheckbox .g-FormField2-InputContainer,
+	 	.FormFieldCheckbox .g-FormField2-InputPanel,
+	 	.FormFieldCheckbox .CheckBoxContainer {float:none !important;}
+	.FormFieldCheckbox .clear {clear:none;}
+	.FormFieldCheckboxWithDescription {height:40px;}
+		.FormFieldCheckboxWithDescription .g-FormField2-Description {padding: 0 0 0 24px;}
+
+.FormFieldCheckboxFullWidth .g-FormField2-Description {max-width: none;}
+
+.CaptionTextBox {float:left; margin:0 0 5px;}
+	.CaptionTextBox .CaptionTextBoxView,
+	    .CaptionTextBox .CaptionTextBoxEmpty {border:1px solid #DDD; background:none;}
+	.CaptionTextBox .CaptionTextBoxOver {border:1px solid #ccc; background:#f8f8f8;}
+   	.CaptionTextBox .CaptionTextBoxEdit {border:1px solid #999;}
+    .CaptionTextBoxView, .CaptionTextBoxOver, .CaptionTextBoxEdit, .CaptionTextBoxEmpty {padding:2px;}
+   	.CaptionTextBox .g-FormField2-Description {font-size:0.9em; color:#333;}
+   	.CaptionTextBox .TextBoxContainer-focus {border:1px solid #999;}
+   	.CaptionTextBoxView.TextBoxContainer-focus, .CaptionTextBoxEdit.TextBoxContainer-focus {border:1px solid #999;}
+   	.CaptionTextBox .TextBoxContainer {display:block;}
+
+.g-ListBoxPopup {background:#fff; border:none; border:1px solid #015a82; color:#000;}
+	.g-ListBoxPopup .g-TablePanel {background:none; border:none; width:auto !important;}
+	.g-ListBoxPopup .g-TableRow {border:none !important; background:none; padding:2px 5px;}
+	.g-ListBoxPopup .g-TableRow:first-child {border-top:none !important;}
+	.g-ListBoxPopup .g-TableRow-focused {border-top:none !important; background:#005b82 !important; color:#fff;}
+	.g-ListBoxPopup .g-TableRow-focused:first-child {border-top:none !important; background:#005b82 !important;}
+	.g-ListBoxPopup .g-TableBody td {border:0 !important;}
+	.g-ListBoxPopup .ListBoxRowSeparator {border-bottom:1px solid transparent !important;}
+	.g-ListBoxPopup .ListBoxRowSeparator-active {border-bottom:1px solid #015a82 !important;}
+	   
+.Editor .ToolbarPanel .RichTextToolbar {width: 100%;}
+.Editor .TextAreaPanel {height: 180px;}
+.Editor .TextAreaPanel .gwt-TextArea, .Editor .TextAreaPanel .gwt-RichTextArea {height: 100%; min-height: 100%; width: 100%; position: relative; float: none; background: none; border: none;}
+
+.TextBoxContainer-Readonly {width:700px; background-color:#FFF6B9; border-top:1px solid #868161; border-left:1px solid #d7cf9b; border-right:1px solid #d7cf9b; border-bottom:1px solid #ede9d0; -moz-border-radius:4px; -webkit-border-radius:4px; border-radius:4px; clear:both; padding:4px 4px 2px !important;}
+	.TextBoxContainer-Readonly .TextBox {font-size:1.1em !important; width:700px;}
+	
+/* RTL */
+.rtl .g-FormField2-InputContainer {float:right; text-align:right;}
+	.rtl .g-FormField2-InputPanel {float:right;}
+	.rtl .g-FormField2-ErrorIcon {right:auto; left:-20px; background-position:left center;}
+	.rtl .g-FormField2-ErrorPopup-Beside {padding:0 5px 0 0; background:url('img/fieldset-error-arrow.png') no-repeat right -5px;}
+	.rtl .g-FormField2-ErrorPopup-Bellow {background:url('img/fieldset-error-arrow.png') no-repeat top right;}
+	.rtl .g-FormField2-Label {float:right; padding:5px 0 5px 10px;}
+.rtl .NewFormFieldContent {padding:0 145px 0 0;}
+.rtl .NewFormFieldContent.FormFieldsetButtons {padding:15px 145px 13px 15px;}
+	.rtl .FormFieldsetButtons .ImLeButton {margin-left:10px; margin-right:auto;}
+.rtl .NewFormFieldLabel {padding:5px 0 5px 10px; float:right;}
+	.rtl .NewFormFieldButton {margin:5px 145px 5px 5px !important;}
+	.rtl .NewFormFieldButton .ImLeButton {margin-left:5px; margin-right:auto;}
+.rtl .FormfieldAsNewFormField.NewFormFieldContent {padding:10px 145px 10px 0;}
+	.rtl .FormfieldAsNewFormField .g-FormField2-Label {padding:5px 0 5px 10px; margin:0 5px 0 0; float:right; text-align:left;}
+	.rtl .FormfieldAsNewFormField .g-FormField2-InputContainer .g-FormField2-Label {padding:0 0 0 10px; margin:0 5px 0 0; float:right; text-align:left;}
+.rtl .FormTooltip {margin:0 20px 0 0;}
+	.rtl .FormTooltipArrow {right:-8px; left:auto;}
+.rtl .RadioButton {float:right; padding:2px 21px 2px 10px;}
+.rtl .RadioButtonIcon {left:auto; right:0;}
+.rtl .RadioButton2-Button {padding:2px 21px 2px 10px;}
+	.rtl .RadioButton2-Icon {right:0; left:auto;}
+	.rtl .RadioButtonGroup2-inline .RadioButton2 {float:right;}
+	.rtl .RadioButtonGroup2-image .RadioButton2 {margin:0 0 10px 10px;}
+	.rtl .RadioButtonGroup2-grid .RadioButton2-Content {padding:10px 25px 8px 0;}
+		.rtl .RadioButtonGroup2-grid .RadioButton2-Button {right:0; left:auto;}
+.rtl .CheckBoxContainer {padding:0 15px 0 0;}
+	.rtl .CheckBoxContainer .CheckBox {right:0; left:auto;}
+	.rtl .CheckBoxContainer .CheckBoxlabel {padding:0 5px 0 0;}
+	.rtl .CheckboxIcon {left:auto; right:0;} 
+.rtl .FormFieldCheckbox .g-FormField2-Label {padding:3px 25px 0 0;}
+	.rtl .FormFieldCheckboxWithDescription .g-FormField2-Description {padding:0 24px 0 0;}
+.rtl .CaptionTextBox {float:right;}
+.rtl .NewFormFieldMessage.messageOk .MessageArrow, .rtl .FormMessage-info .FormMessageArrow {right:15px; left:auto;}
+.rtl .NewFormFieldMessage.messageError .MessageArrow, .rtl .FormMessage-error .FormMessageArrow {right:15px; left:auto;}
+.rtl .NewFormFieldContent .SubmitButton {margin-left:5px; margin-right:0;}

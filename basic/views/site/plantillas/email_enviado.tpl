@@ -1,0 +1,1 @@
+<p>El email ha sido enviado</p>
