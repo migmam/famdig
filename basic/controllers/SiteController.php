@@ -31,7 +31,8 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post','get'],  //Quitar GET (MAM)
-                    'rememberPass' => ['post','get'],  //Quitar GET (MAM)
+                    'rememberpass' => ['post','get'],  //Quitar GET (MAM)
+                    'sendforgotpass' => ['post','get'],  //Quitar GET (MAM)
                 ],
             ],
         ];
@@ -65,26 +66,30 @@ class SiteController extends Controller
     {
         //aquí se genera token y se graba en el modelo.
         //dicho token se envía por correo.
+        return $this->render('rememberPass.tpl'); 
         
-      if(!Yii::$app->mailer->compose()
-        ->setFrom('notreply@virtualcarecorp.com')
-        ->setTo('mamartinez@somosvirtualcare.com')
-        ->setSubject('Test')
-        ->setHtmlBody($this->render('@app/mail/remember-pass.tpl', [
-        'token' => '34343443008888']))
-        ->send())
-      {
-          echo "falla"; exit;
-      }
-        
-         return $this->render('plantillas/email_enviado.tpl');
-        
+      
         
         //Yii::$app->mailer->compose('greetings', [
         //'user' => Yii::$app->user->identity,
         //'advertisement' => $adContent,
         //]);
     }
+    
+      public function actionForgotpass()
+    {
+        //aquí se genera token y se graba en el modelo.
+        //dicho token se envía por correo.
+        return $this->render('forgotPass.tpl'); 
+        
+      
+        
+        //Yii::$app->mailer->compose('greetings', [
+        //'user' => Yii::$app->user->identity,
+        //'advertisement' => $adContent,
+        //]);
+    }
+
 
     public function actionLogin()
     {
@@ -106,9 +111,22 @@ class SiteController extends Controller
         //]);
     }
     
-    public function actionForgotpass()
+    public function actionSendforgotpass()
     {
-        return $this->render('forgotPass.tpl'); 
+        if(!Yii::$app->mailer->compose()
+        ->setFrom('notreply@virtualcarecorp.com')
+        ->setTo($_POST["email"])
+        ->setSubject('Test')
+        ->setHtmlBody($this->render('@app/mail/remember-pass.tpl', [
+        'token' => '34343443008888','email'=>$_POST["email"]]))
+        ->send())
+      {
+          echo "falla"; exit;
+      }
+        
+         return $this->render('plantillas/email_enviado.tpl');
+        
+        
     }
 
     public function actionLogout()
