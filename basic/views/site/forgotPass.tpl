@@ -18,7 +18,7 @@
         //the user that they have entered the correct password 
         pass2.style.backgroundColor = goodColor;
         message.style.color = goodColor;
-        message.innerHTML = "Passwords Match!";
+        message.innerHTML = "Contraseñas ok!";
 
         botonEnviar.style.visibility = "visible";
         
@@ -28,7 +28,7 @@
         //notify the user.
         pass2.style.backgroundColor = badColor;
         message.style.color = badColor;
-        message.innerHTML = "Passwords Do Not Match!"
+        message.innerHTML = "Contraseñas no coinciden!"
       
         botonEnviar.style.visibility = "hidden";
     }

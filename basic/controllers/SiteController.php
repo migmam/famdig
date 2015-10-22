@@ -9,6 +9,8 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 
+
+
 class SiteController extends Controller
 {
     public function behaviors()
@@ -64,30 +66,17 @@ class SiteController extends Controller
     
     public function actionRememberpass()
     {
-        //aquí se genera token y se graba en el modelo.
-        //dicho token se envía por correo.
-        return $this->render('rememberPass.tpl'); 
+        return $this->render('rememberPass.tpl', [
+        'vendor_path' => Yii::getAlias('@web').'/../vendor']); 
         
-      
-        
-        //Yii::$app->mailer->compose('greetings', [
-        //'user' => Yii::$app->user->identity,
-        //'advertisement' => $adContent,
-        //]);
+
     }
     
       public function actionForgotpass()
     {
-        //aquí se genera token y se graba en el modelo.
-        //dicho token se envía por correo.
+  
         return $this->render('forgotPass.tpl'); 
-        
-      
-        
-        //Yii::$app->mailer->compose('greetings', [
-        //'user' => Yii::$app->user->identity,
-        //'advertisement' => $adContent,
-        //]);
+
     }
 
 
@@ -113,6 +102,16 @@ class SiteController extends Controller
     
     public function actionSendforgotpass()
     {
+       
+        
+        
+        $securimage = new \Securimage();
+        if ($securimage->check($_POST['captcha_code']) == false) {
+            return $this->render('captcha_erroneous.tpl');
+        }
+        
+        
+        
         if(!Yii::$app->mailer->compose()
         ->setFrom('notreply@virtualcarecorp.com')
         ->setTo($_POST["email"])

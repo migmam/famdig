@@ -46,10 +46,14 @@ function resultado_validacion(data,status)
     var resultado = document.getElementById('result');
     //alert("Data: " + data + "\nStatus: " + status);
     if(data==='ko')
-        
+    {
         resultado.innerHTML = "Dominio de dirección email no existe";
-    else
+    }else{
         resultado.innerHTML = "Dirección de correo válida";
+        document.remember_form.submit();
+    }
+        
+        
 }
 
 
@@ -65,10 +69,16 @@ function valida_email_format(email)
 {/literal}
 
 
-<form action="http://localhost/familiadigital/basic/web/index.php?r=site/sendforgotpass" method="post">
+<form name='remember_form' action="http://localhost/familiadigital/basic/web/index.php?r=site/sendforgotpass" method="post">
+    <div id='emaildata'>
     <label for='email'>Introduzca su Email</label><input type="text" name="email" id='email'>
     <input type="hidden" name="_csrf" value="NmxpOThpZDVlCgYJAFAgd24JIWpSBAYDQzpYQU8YAAR8OlpcfFAgWQ==">
-    <input type="submit" value='enviar'></input>
-    <input type="button" onclick="valida_email()" value="prueba"></input>
+    <input type="button" onclick="valida_email()" value="enviar"></input>
+    </div>
+    <div id='captchablock'>
+        <img id="captcha" src="{$vendor_path}/securimage/securimage_show.php" alt="CAPTCHA Image" />
+       <input type="text" name="captcha_code" size="10" maxlength="6" />
+        <a href="#" onclick="document.getElementById('captcha').src = '{$vendor_path}/securimage/securimage_show.php?' + Math.random(); return false">[ Different Image ]</a
+    </div>
     <div id='result'></div>
 </form> 

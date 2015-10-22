@@ -10,5 +10,5 @@ require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
 $config = require(__DIR__ . '/../config/web.php');
 
 require(__DIR__ . '/own_functions.php');
-
+require(__DIR__ . '/../vendor/securimage/securimage.php');
 (new yii\web\Application($config))->run();
