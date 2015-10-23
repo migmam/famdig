@@ -71,14 +71,15 @@ function valida_email_format(email)
 
 <form name='remember_form' action="http://localhost/familiadigital/basic/web/index.php?r=site/sendforgotpass" method="post">
     <div id='emaildata'>
-    <label for='email'>Introduzca su Email</label><input type="text" name="email" id='email'>
+        <label for='email'>{Yii::t('app',"Type your email")}</label><input type="text" name="email" id='email' size="60">
     <input type="hidden" name="_csrf" value="NmxpOThpZDVlCgYJAFAgd24JIWpSBAYDQzpYQU8YAAR8OlpcfFAgWQ==">
-    <input type="button" onclick="valida_email()" value="enviar"></input>
+    <input type="button" onclick="valida_email()" value="{Yii::t('app',"Send")}"></input>
     </div>
     <div id='captchablock'>
         <img id="captcha" src="{$vendor_path}/securimage/securimage_show.php" alt="CAPTCHA Image" />
        <input type="text" name="captcha_code" size="10" maxlength="6" />
-        <a href="#" onclick="document.getElementById('captcha').src = '{$vendor_path}/securimage/securimage_show.php?' + Math.random(); return false">[ Different Image ]</a
+        <a href="#" onclick="document.getElementById('captcha').src = '{$vendor_path}/securimage/securimage_show.php?' + Math.random(); return false">[ {Yii::t('app',"Different Image")} ]</a
     </div>
     <div id='result'></div>
 </form> 
+

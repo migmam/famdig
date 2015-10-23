@@ -40,11 +40,11 @@
         <label for='email'>Email</label><input type="text" name="email" id="email" value="{$smarty.get.email}" readonly>
         <div class="fieldWrapper">
             <label for="pass1">Password:</label>
-            <input type="password" name="pass1" id="pass1">
+            <input type="password" name="pass1" id="pass1" size="20">
         </div>
         <div class="fieldWrapper">
             <label for="pass2">Confirm Password:</label>
-            <input type="password" name="pass2" id="pass2" onkeyup="checkPass(); return false;">
+            <input type="password" name="pass2" id="pass2" onkeyup="checkPass(); return false;" size='20'>
             <span id="confirmMessage" class="confirmMessage"></span>
         </div>
         <input type="hidden" name='token' id='token' value="{$smarty.get.token}">

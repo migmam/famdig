@@ -6,7 +6,14 @@ $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'es-ES', 
+    'sourceLanguage' => 'en-US',
+ 
+    
+
     'components' => [
+           
+     
         'view' => [
                 'renderers' => [
                         'tpl' => [
@@ -55,6 +62,7 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
     ],
     'params' => $params,
+    
 ];
 
 if (YII_ENV_DEV) {

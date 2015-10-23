@@ -33,8 +33,8 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post','get'],  //Quitar GET (MAM)
-                    'rememberpass' => ['post','get'],  //Quitar GET (MAM)
-                    'sendforgotpass' => ['post','get'],  //Quitar GET (MAM)
+                    'rememberpass' => ['get'],  //Quitar GET (MAM)
+                    'sendforgotpass' => ['post'],  //Quitar GET (MAM)
                 ],
             ],
         ];
@@ -66,7 +66,7 @@ class SiteController extends Controller
     
     public function actionRememberpass()
     {
-        return $this->render('rememberPass.tpl', [
+        return $this->render('recupera_pass/rememberPass.tpl', [
         'vendor_path' => Yii::getAlias('@web').'/../vendor']); 
         
 
@@ -75,7 +75,7 @@ class SiteController extends Controller
       public function actionForgotpass()
     {
   
-        return $this->render('forgotPass.tpl'); 
+        return $this->render('recupera_pass/forgotPass.tpl'); 
 
     }
 
@@ -102,28 +102,71 @@ class SiteController extends Controller
     
     public function actionSendforgotpass()
     {
-       
+        $email_enviado = mysql_escape_string($_POST["email"]);
         
+        $usuario = \app\models\Usuarios::find()
+        ->where(['email' => $email_enviado])
+        ->one();
+        if(empty($usuario))
+        {
+              return $this->render('recupera_pass/change_pass_fail.tpl', 
+            ['motivo' => 'email']);
+        }
+        
+
         
         $securimage = new \Securimage();
         if ($securimage->check($_POST['captcha_code']) == false) {
-            return $this->render('captcha_erroneous.tpl');
+           return $this->render('recupera_pass/change_pass_fail.tpl', 
+            ['motivo' => 'captcha']);
         }
         
-        
+        $token = sha1(time()+$usuario->id);
+        $usuario->token = $token;
+        $usuario-> save();
         
         if(!Yii::$app->mailer->compose()
         ->setFrom('notreply@virtualcarecorp.com')
-        ->setTo($_POST["email"])
+        ->setTo($email_enviado)
         ->setSubject('Test')
         ->setHtmlBody($this->render('@app/mail/remember-pass.tpl', [
-        'token' => '34343443008888','email'=>$_POST["email"]]))
+        'token' => $token,'email'=>$_POST["email"]]))
         ->send())
-      {
-          echo "falla"; exit;
-      }
+        {
+            return $this->render('recupera_pass/change_pass_fail.tpl', 
+            ['motivo' => 'email_server',
+                'home' => Yii::getAlias('@web')
+            ]);
+        }
         
          return $this->render('plantillas/email_enviado.tpl');
+        
+        
+    }
+    
+    public function actionChangepass()
+    {
+        
+        $usuario = \app\models\Usuarios::find()
+        ->where(['email' => $_POST["email"],'token'=>$_POST["token"]])
+        ->one();
+        if(empty($usuario))
+        {
+            return $this->render('change_pass_fail.tpl', 
+            ['motivo' => 'token',
+                'home' => Yii::getAlias('@web')
+            ]);
+        }
+        
+        $usuario->password = sha1(mysql_escape_string( $_POST["pass1"]));
+        $usuario->save();
+        
+        return $this->render('recupera_pass/change_pass_fail.tpl', 
+            ['motivo' => 'ok',
+                'home' => Yii::getAlias('@web')
+            ]);
+        
+     
         
         
     }
