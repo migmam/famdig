@@ -9,10 +9,12 @@ use Yii;
  *
  * @property integer $usuarios_id
  * @property integer $licencias_id
+ * @property integer $usuarios_padre_id
  *
  * @property ServiciosProductosUsuariosLicencias[] $serviciosProductosUsuariosLicencias
- * @property Usuarios $usuarios
+ * @property Usuarios $usuariosPadre
  * @property Licencias $licencias
+ * @property Usuarios $usuarios
  */
 class UsuariosLicencias extends \yii\db\ActiveRecord
 {
@@ -31,7 +33,7 @@ class UsuariosLicencias extends \yii\db\ActiveRecord
     {
         return [
             [['usuarios_id', 'licencias_id'], 'required'],
-            [['usuarios_id', 'licencias_id'], 'integer']
+            [['usuarios_id', 'licencias_id', 'usuarios_padre_id'], 'integer']
         ];
     }
 
@@ -43,6 +45,7 @@ class UsuariosLicencias extends \yii\db\ActiveRecord
         return [
             'usuarios_id' => 'Usuarios ID',
             'licencias_id' => 'Licencias ID',
+            'usuarios_padre_id' => 'Usuarios Padre ID',
         ];
     }
 
@@ -57,9 +60,9 @@ class UsuariosLicencias extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getUsuarios()
+    public function getUsuariosPadre()
     {
-        return $this->hasOne(Usuarios::className(), ['id' => 'usuarios_id']);
+        return $this->hasOne(Usuarios::className(), ['id' => 'usuarios_padre_id']);
     }
 
     /**
@@ -68,5 +71,13 @@ class UsuariosLicencias extends \yii\db\ActiveRecord
     public function getLicencias()
     {
         return $this->hasOne(Licencias::className(), ['id' => 'licencias_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUsuarios()
+    {
+        return $this->hasOne(Usuarios::className(), ['id' => 'usuarios_id']);
     }
 }

@@ -17,7 +17,7 @@ use yii\web\IdentityInterface;
  *
  * @property integer $id
  * @property string $nombre
- * @property string $apellidos
+ * @property string $apellido1
  * @property string $telefono
  * @property string $movil
  * @property string $email
@@ -25,11 +25,17 @@ use yii\web\IdentityInterface;
  * @property integer $municipios_id
  * @property string $password
  * @property string $username
- * @property string $token 
- * @property integer $token_time 
+ * @property string $token
+ * @property string $apellido2
+ * @property string $dni
+ * @property string $direccion
+ * @property integer $persona_fisica
+ * @property string $fecha_nacimiento
+ * @property string $genero
  *
  * @property Municipios $municipios
  * @property UsuariosLicencias[] $usuariosLicencias
+ * @property UsuariosLicencias[] $usuariosLicencias0
  * @property Licencias[] $licencias
  */
 class Usuarios extends \yii\db\ActiveRecord  implements IdentityInterface
@@ -48,13 +54,16 @@ class Usuarios extends \yii\db\ActiveRecord  implements IdentityInterface
     public function rules()
     {
         return [
-            [['municipios_id', 'username'], 'required'],
-            [['municipios_id', 'token_time'], 'integer'],
-            [['nombre', 'apellidos', 'username'], 'string', 'max' => 45],
-            [['telefono', 'movil'], 'string', 'max' => 15],
+            [['municipios_id', 'username', 'persona_fisica', 'genero'], 'required'],
+            [['municipios_id', 'persona_fisica'], 'integer'],
+            [['fecha_nacimiento'], 'safe'],
+            [['nombre', 'apellido1', 'username', 'apellido2'], 'string', 'max' => 45],
+            [['telefono', 'movil', 'dni'], 'string', 'max' => 15],
             [['email', 'token'], 'string', 'max' => 50],
             [['codpostal'], 'string', 'max' => 5],
-            [['password'], 'string', 'max' => 150]
+            [['password'], 'string', 'max' => 150],
+            [['direccion'], 'string', 'max' => 60],
+            [['genero'], 'string', 'max' => 1]
         ];
     }
 
@@ -66,7 +75,7 @@ class Usuarios extends \yii\db\ActiveRecord  implements IdentityInterface
         return [
             'id' => 'ID',
             'nombre' => 'Nombre',
-            'apellidos' => 'Apellidos',
+            'apellido1' => 'Apellido1',
             'telefono' => 'Telefono',
             'movil' => 'Movil',
             'email' => 'Email',
@@ -74,8 +83,13 @@ class Usuarios extends \yii\db\ActiveRecord  implements IdentityInterface
             'municipios_id' => 'Municipios ID',
             'password' => 'Password',
             'username' => 'Username',
-            'token' => 'Token', 
-            'token_time' => 'Token Time',
+            'token' => 'Token',
+            'apellido2' => 'Apellido2',
+            'dni' => 'Dni',
+            'direccion' => 'Direccion',
+            'persona_fisica' => 'Persona Fisica',
+            'fecha_nacimiento' => 'Fecha Nacimiento',
+            'genero' => 'Genero',
         ];
     }
 
@@ -88,13 +102,22 @@ class Usuarios extends \yii\db\ActiveRecord  implements IdentityInterface
     }
 
     /**
-     * @return \yii\db\ActiveQuery
-     */
+      * @return \yii\db\ActiveQuery
+      */
     public function getUsuariosLicencias()
     {
-        return $this->hasMany(UsuariosLicencias::className(), ['usuarios_id' => 'id']);
+        return $this->hasMany(UsuariosLicencias::className(), ['usuarios_padre_id' => 'id']);
     }
-
+   
+    /**
+    * @return \yii\db\ActiveQuery
+    */
+    public function getUsuariosLicencias0()
+    {
+       return $this->hasMany(UsuariosLicencias::className(), ['usuarios_id' => 'id']);
+    }
+   
+ 
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -103,6 +126,11 @@ class Usuarios extends \yii\db\ActiveRecord  implements IdentityInterface
         return $this->hasMany(Licencias::className(), ['id' => 'licencias_id'])->viaTable('usuarios_licencias', ['usuarios_id' => 'id']);
     }
     
+    
+       /**
+    * @return \yii\db\ActiveQuery
+    */
+  
     //Autenticación-------------------------------------------------------------
     
     
